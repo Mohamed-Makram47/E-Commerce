@@ -1,0 +1,70 @@
+{% extends 'forms.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block body %}
+
+<!-- Login section start -->
+
+<section class="d-flex justify-content-center align-items-center" style="min-height: 100vh; background-color: #1f2326;"> <!-- Dark calm background -->
+    <div class="base-content" style="background-color: #ffffff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); width: 100%; max-width: 400px;">
+        <div class="form">
+            <h3 class="text-center" style="font-weight: bold; color: #212529;">
+                Login to start <br> Shopping
+            </h3>
+
+            <hr class="first" style="border-color: #343a40;">
+            <form method="POST">
+                {{ form.hidden_tag() }}
+
+                <div class="mb-3">
+                    <h4 style="font-weight: bold; color: #212529;">Email Address</h4>
+                    {{ form.email(class_="form-control") }}
+                </div>
+
+                <div class="mb-3">
+                    <h4 style="font-weight: bold; color: #212529;">Password</h4>
+                    {{ form.password(class_="form-control") }}
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <a href="/sign-up" style="text-decoration: none; color: #238636;">Sign Up</a>
+                    {{ form.submit(class_="btn btn-primary btn-lg") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<style>
+    body {
+        background-color: #1f2326; /* Calm dark background */
+        color: #f8f9fa; /* Light text for contrast */
+    }
+
+    .form-control {
+        border-radius: 5px;
+        background-color: #f8f9fa;
+        border: 1px solid #ccc;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary {
+        background-color: #238636;
+        border-color: #238636;
+    }
+
+    .btn-primary:hover {
+        background-color: #2e7d32; /* Slightly darker green */
+        border-color: #2e7d32;
+        transform: scale(1.05);
+        transition: 0.2s;
+    }
+
+    hr.first {
+        border-color: #343a40;
+    }
+</style>
+
+{% endblock %}
+
