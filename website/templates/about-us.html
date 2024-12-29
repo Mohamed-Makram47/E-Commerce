@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and overall layout */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #1e1e1e;
+            color: #d1d5db;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Main content wrapper */
+        main {
+            flex-grow: 1;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #2d2d2d;
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid #444;
+        }
+
+        .header-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header-container p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Mission section styles */
+        .mission {
+            background-color: #232629;
+            padding: 40px 20px;
+            margin: 20px auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .mission h2 {
+            font-size: 2rem;
+            color: #2ac7a3; /* Green like GitHub's buttons */
+            margin-bottom: 20px;
+        }
+
+        .mission p {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            line-height: 1.7;
+        }
+
+        /* Green button style */
+        .green-btn {
+            background-color: #2ac7a3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .green-btn:hover {
+            background-color: #238c6c;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #2d2d2d;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #444;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Spacing for the last section before footer */
+        .mission {
+            margin-bottom: 30px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header-container h1 {
+                font-size: 2rem;
+            }
+
+            .header-container p {
+                font-size: 1rem;
+            }
+
+            .mission h2 {
+                font-size: 1.8rem;
+            }
+
+            .mission p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>About Us</h1>
+            <p>Welcome to our online store! Learn more about our story, mission, and values here.</p>
+        </div>
+    </header>
+    <main>
+        <section class="mission">
+            <div class="content-container">
+                <h2>Our Mission</h2>
+                <p>Delivering quality products at affordable prices while maintaining sustainability.</p>
+                <button class="green-btn">Learn More</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Online Store</p>
+    </footer>
+</body>
+</html>
