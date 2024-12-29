@@ -3,14 +3,12 @@ from .models import Product, Cart, Order
 from flask_login import login_required, current_user
 from . import db
 from intasend import APIService
-
+from os import getenv  
 
 views = Blueprint('views', __name__)
 
-API_PUBLISHABLE_KEY = 'YOUR_PUBLISHABLE_KEY'
-
-API_TOKEN = 'YOUR_API_TOKEN'
-
+API_PUBLISHABLE_KEY = getenv('API_PUBLISHABLE_KEY')
+API_TOKEN = getenv('API_TOKEN')
 
 @views.route('/')
 def home():
@@ -158,7 +156,7 @@ def place_order():
                 total += item.product.current_price * item.quantity
 
             service = APIService(token=API_TOKEN, publishable_key=API_PUBLISHABLE_KEY, test=True)
-            create_order_response = service.collect.mpesa_stk_push(phone_number='YOUR_NUMBER ', email=current_user.email,
+            create_order_response = service.collect.mpesa_stk_push(phone_number='254712839192', email=current_user.email,
                                                                    amount=total + 200, narrative='Purchase of goods')
 
             for item in customer_cart:
@@ -209,7 +207,3 @@ def search():
                            if current_user.is_authenticated else [])
 
     return render_template('search.html')
-
-
-
-

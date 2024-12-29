@@ -21,3 +21,4 @@ urllib3==2.0.4
 Werkzeug==2.3.6
 WTForms==3.0.1
 zipp==3.15.0
+python-dotenv==1.0.1
