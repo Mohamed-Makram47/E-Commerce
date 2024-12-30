@@ -3,6 +3,37 @@
 {% block title %} Admin Page {% endblock %}
 
 {% block body %}
+<style>
+    /* Table Styling */
+    .table-dark {
+        background-color: #1d1f21;
+        color: #c9d1d9;
+        border: none;
+    }
+    .table-dark th,
+    .table-dark td {
+        border-color: #2d333b;
+    }
+
+    /* Link Button Styling */
+    .btn-green {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        margin: 0.2rem;
+        color: #ffffff;
+        background-color: #2ea043;
+        border: 1px solid #2ea043;
+        border-radius: 0.25rem;
+        text-decoration: none;
+        font-weight: bold;
+        text-align: center;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    .btn-green:hover {
+        background-color: #218c3c;
+        border-color: #218c3c;
+    }
+</style>
 
 <table class="table table-dark table-hover">
     <thead>
@@ -11,19 +42,15 @@
             <th scope="col">Shop Items</th>
             <th scope="col">Add Shop Items</th>
             <th scope="col">View Orders</th>
-
         </tr>
-
     </thead> 
     <tbody>
         <tr>
-        <td><a href="/customers">Customers</a></td>
-        <td><a href="/shop-items">Shop Items</a></td>
-        <td><a href="/add-shop-items">Add Shop Items</a></td>
-        <td><a href="/view-orders">View Orders</a></td>
+            <td><a href="/customers" class="btn-green">Customers</a></td>
+            <td><a href="/shop-items" class="btn-green">Shop Items</a></td>
+            <td><a href="/add-shop-items" class="btn-green">Add Shop Items</a></td>
+            <td><a href="/view-orders" class="btn-green">View Orders</a></td>
         </tr>
     </tbody>
 </table>
-
-
 {% endblock %}
