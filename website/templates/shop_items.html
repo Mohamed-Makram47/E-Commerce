@@ -2,58 +2,89 @@
 
 {% block title %} Shop Items {% endblock %}
 
-
 {% block body %}
 
-{% if items | length < 1 %}
-<h3 style="color: white;">No Shop Items </h3>
+<div class="container mt-5">
+    <h1 class="text-center text-light mb-4">Shop Items</h1>
 
-{% else %}
+    {% if items | length < 1 %}
+        <h3 class="text-center text-light">No Shop Items</h3>
+    {% else %}
+        <table class="table table-dark table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Date Added</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Previous Price</th>
+                    <th scope="col">Current Price</th>
+                    <th scope="col">In Stock</th>
+                    <th scope="col">Product Picture</th>
+                    <th scope="col">Flash Sale</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <th scope="row">{{ item.id }}</th>
+                    <td>{{ item.date_added }}</td>
+                    <td>{{ item.product_name }}</td>
+                    <td>{{ item.previous_price }}</td>
+                    <td>{{ item.current_price }}</td>
+                    <td>{{ item.in_stock }}</td>
+                    <td>
+                        <img src="{{ item.product_picture }}" alt="Product Image" 
+                             style="height: 50px; width: 50px; border-radius: 5px; object-fit: cover;">
+                    </td>
+                    <td>{{ item.flash_sale }}</td>
+                    <td>
+                        <a href="/update-item/{{ item.id }}" class="btn btn-custom btn-sm">Update</a>
+                        <a href="/delete-item/{{ item.id }}" class="btn btn-danger btn-sm mt-2">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</div>
 
-<table class="table table-dark table-hover">
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Date Added</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Previous Price</th>
-            <th scope="col">Current Price</th>
-            <th scope="col">In Stock</th>
-            <th scope="col">Product Picture</th>
-            <th scope="col">Flash Sale</th>
-            <th scope="col">Action</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        {% for item in items %}
-
-        <tr>
-            <th scope="row">{{ item.id }}</th>
-            <td>{{ item.date_added }}</td>
-            <td>{{ item.product_name }}</td>
-            <td>{{ item.previous_price }}</td>
-            <td>{{ item.current_price }}</td>
-            <td>{{ item.in_stock }}</td>
-            <td><img src="{{ item.product_picture }}" alt="" style="height: 50px; width: 50px; border-radius: 2px;"></td>
-            <td>{{ item.flash_sale }}</td>
-
-
-            <td>
-                <a href="/update-item/{{ item.id }}">Update</a>
-                <br>
-                <a href="/delete-item/{{ item.id }}">Delete</a>
-            </td>
-
-        </tr>
-
-
-        {% endfor %}
-    </tbody>
-</table>
-
-
-{% endif %}
-
+<style>
+    .btn-custom {
+        background-color: #2ea44f; /* GitHub green */
+        color: #fff;
+        border: none;
+        padding: 6px 12px;
+        font-size: 12px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    .btn-custom:hover {
+        background-color: #22863a; /* Darker green for hover */
+    }
+    .btn-danger {
+        background-color: #d73a49; /* Red for delete */
+        color: #fff;
+        border: none;
+        padding: 6px 12px;
+        font-size: 12px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    .btn-danger:hover {
+        background-color: #b31d28;
+    }
+    img {
+        border: 1px solid #2ea44f; /* Slight border to match theme */
+    }
+    thead {
+        background-color: #3c3c3c;
+    }
+    tbody tr:hover {
+        background-color: #444;
+    }
+</style>
 
 {% endblock %}

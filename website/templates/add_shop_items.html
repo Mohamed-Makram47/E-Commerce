@@ -2,39 +2,149 @@
 
 {% block title %} Add Shop Items {% endblock %}
 
-
 {% block body %}
 
-<table class="table table-dark table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Product Name</th>
-            <th scope="col">Previous Price</th>
-            <th scope="col">Current Price</th>
-            <th scope="col">In Stock</th>
-            <th scope="col">Picture</th>
-            <th scope="col">Flash Sale</th>
-            <th scope="col">Add</th>
+<div class="container mt-5">
+    <h1 class="text-center text-light mb-4">Add Shop Items</h1>
+    <table class="table table-dark table-hover table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Product Name</th>
+                <th scope="col">Previous Price</th>
+                <th scope="col">Current Price</th>
+                <th scope="col">In Stock</th>
+                <th scope="col">Picture</th>
+                <th scope="col">Flash Sale</th>
+                <th scope="col">Add</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {{ form.hidden_tag() }}
+                    <td>{{ form.product_name(class_="form-control") }}</td>
+                    <td>{{ form.previous_price(class_="form-control") }}</td>
+                    <td>{{ form.current_price(class_="form-control") }}</td>
+                    <td>{{ form.in_stock(class_="form-control") }}</td>
+                    <td>
+                        <div class="custom-file-upload">
+                            {{ form.product_picture(class_="file-input") }}
+                            <label for="{{ form.product_picture.id }}">Choose File</label>
+                        </div>
+                    </td>
+                    <td>
+                        <label class="toggle-switch">
+                            {{ form.flash_sale(class_="toggle-checkbox") }}
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </td>
+                    <td>{{ form.add_product(class_="btn btn-custom") }}</td>
+                </form>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
-        </tr>
-    </thead>
+<style>
+    .btn-custom {
+        background-color: #2ea44f; /* GitHub green */
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        font-size: 14px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    .btn-custom:hover {
+        background-color: #22863a; /* Darker green for hover */
+    }
+    .form-control, .form-control-file {
+        background-color: #222;
+        color: #fff;
+        border: 1px solid #444;
+        padding: 6px;
+        border-radius: 4px;
+    }
+    .form-control:focus, .form-control-file:focus {
+        border-color: #2ea44f;
+        box-shadow: 0 0 5px #2ea44f;
+    }
+    table {
+        margin-top: 20px;
+    }
+    thead {
+        background-color: #3c3c3c;
+    }
+    tbody tr:hover {
+        background-color: #444;
+    }
 
-    <tbody>
-        <tr>
-            <form action="" method="POST", enctype="multipart/form-data">
-                {{ form.hidden_tag() }}
+    /* Toggle Switch Styling */
+    .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 25px;
+    }
+    .toggle-checkbox {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        border-radius: 25px;
+        transition: background-color 0.4s;
+    }
+    .toggle-slider:before {
+        position: absolute;
+        content: "";
+        height: 19px;
+        width: 19px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        border-radius: 50%;
+        transition: transform 0.4s;
+    }
+    .toggle-checkbox:checked + .toggle-slider {
+        background-color: #2ea44f; /* GitHub green */
+    }
+    .toggle-checkbox:checked + .toggle-slider:before {
+        transform: translateX(25px);
+    }
 
-                <td>{{ form.product_name }}</td>
-                <td>{{ form.previous_price }}</td>
-                <td>{{ form.current_price }}</td>
-                <td>{{ form.in_stock }}</td>
-                <td>{{ form.product_picture() }}</td>
-                <td>{{ form.flash_sale }}</td>
-                <td>{{ form.add_product() }}</td>
-            </form>
-        </tr>
-    </tbody>
-</table>
-
+    /* Custom File Input Styling */
+    .custom-file-upload {
+        position: relative;
+        display: inline-block;
+    }
+    .custom-file-upload input[type="file"] {
+        display: none;
+    }
+    .custom-file-upload label {
+        display: inline-block;
+        background-color: #2ea44f;
+        color: white;
+        padding: 8px 16px;
+        font-size: 14px;
+        text-align: center;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .custom-file-upload label:hover {
+        background-color: #22863a;
+    }
+</style>
 
 {% endblock %}
+

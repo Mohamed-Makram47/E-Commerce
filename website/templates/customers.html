@@ -4,27 +4,61 @@
 
 {% block body %}
 
-<table class="table table-dark table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Customer ID</th>
-            <th scope="col">Username</th>
-            <th scope="col">Email</th>
-            <th scope="col">Date Joined</th>
+<div class="container mt-5">
+    <h1 class="text-center text-light mb-4">Customers</h1>
+    <table class="table table-dark table-hover table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Customer ID</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Date Joined</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+            <tr>
+                <td>{{ customer.id }}</td>
+                <td>{{ customer.username }}</td>
+                <td>{{ customer.email }}</td>
+                <td>{{ customer.date_joined }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
-        </tr>
-
-    </thead>
-    <tbody>
-        {% for customer in customers %}
-        <tr>
-        <td>{{ customer.id }}</td>
-        <td>{{ customer.username }}</td>
-        <td>{{ customer.email }}</td>
-        <td>{{ customer.date_joined }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<style>
+    table {
+        margin-top: 20px;
+        border-collapse: separate;
+        border-spacing: 0;
+        border: 1px solid #444;
+    }
+    thead {
+        background-color: #3c3c3c;
+    }
+    tbody tr:hover {
+        background-color: #444;
+    }
+    th, td {
+        text-align: center;
+        vertical-align: middle;
+        padding: 12px;
+    }
+    th {
+        color: #ddd;
+        font-weight: bold;
+        border-bottom: 2px solid #555;
+    }
+    td {
+        color: #bbb;
+        border-bottom: 1px solid #555;
+    }
+    h1 {
+        font-size: 2rem;
+        color: #2ea44f; /* GitHub green */
+    }
+</style>
 
 {% endblock %}
