@@ -26,13 +26,35 @@
             color: #ffffff;
             font-size: 30px;
         }
+        .navbar-nav .nav-item {
+            margin: 0 10px; /* Add horizontal spacing between nav items */
+        }
+        
         .nav-link {
-            color: #ffffff;
+            color: white; /* Default text color */
             font-size: 17px;
+            background-color: #238636; /* Green button background */
+            padding: 10px 20px; /* Add padding for a button-like appearance */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover transition */
+            text-align: center;
         }
+        
         .nav-link:hover {
-            color: #58a6ff;
+            color: white; /* Text color on hover */
+            background-color: #2ea043; /* Slightly brighter green on hover */
+            text-decoration: none; /* Remove underline */
         }
+        
+        .navbar .d-flex {
+            margin-right: 20px; /* Space between the search bar and nav links */
+        }
+        
+        .navbar-nav {
+            align-items: center; /* Align nav items vertically */
+        }
+        
+        
         .btn {
             background-color: #238636;
             color: white;
@@ -91,7 +113,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/" style="color: white;">Online Store</a>
+                    <a class="nav-link active" aria-current="page" href="/" style="color: white;">Home page</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/about-us">About Us</a>
