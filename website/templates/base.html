@@ -121,6 +121,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/contact-us">Contact Us</a>
                 </li>
+                {% if is_admin %}
+                <li class="nav-item">
+                    <a href="{{ url_for('admin.admin_page') }}" class="nav-link btn btn-primary text-white">Admin Features</a>
+                </li>
+                {% endif %}
             </ul>
             <form class="d-flex" role="search" action="/search" method="POST">
                 <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">

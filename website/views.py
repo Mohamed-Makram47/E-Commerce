@@ -11,12 +11,13 @@ API_PUBLISHABLE_KEY = getenv('API_PUBLISHABLE_KEY')
 API_TOKEN = getenv('API_TOKEN')
 
 @views.route('/')
+@views.route('/')
 def home():
+    is_admin = current_user.is_authenticated and current_user.id == 1  # Adjust the admin check as needed
+    items = Product.query.filter_by(flash_sale=True).all()
+    cart_items = Cart.query.filter_by(customer_link=current_user.id).all() if current_user.is_authenticated else []
+    return render_template('home.html', items=items, cart=cart_items, is_admin=is_admin)
 
-    items = Product.query.filter_by(flash_sale=True)
-
-    return render_template('home.html', items=items, cart=Cart.query.filter_by(customer_link=current_user.id).all()
-                           if current_user.is_authenticated else [])
 
 @views.route('/about-us')
 def about_us():
